@@ -4,7 +4,7 @@ class ingresar extends StatelessWidget{
   const ingresar({Key? key}) : super(key : key);
 
   @override
-  Widget buid(BuildContext context){
+  Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
         title: const Text("Autenticación"),
@@ -13,11 +13,11 @@ class ingresar extends StatelessWidget{
     );
   }
 
-  @override
+/*  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     throw UnimplementedError();
-  }
+  }*/
 }
 
 Widget cuerpo(){
