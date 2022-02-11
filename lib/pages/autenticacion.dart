@@ -1,22 +1,17 @@
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 class ingresar extends StatelessWidget{
   const ingresar({Key? key}) : super(key : key);
 
   @override
-  Widget buid(BuildContext context){
+  Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
         title: const Text("Autenticación"),
       ),
       body: cuerpo(),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
   }
 }
 
