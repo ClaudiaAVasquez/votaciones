@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:votaciones2/pages/autenticacion.dart';
+import 'pages/autenticacion.dart';
 
 //import 'dart:ffi';
 
