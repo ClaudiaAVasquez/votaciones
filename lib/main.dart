@@ -33,13 +33,22 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Votaciones Gobierno Escolare"),
+        title: const Text("Votaciones Gobierno Escolar IED Nueva Colombia"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('Inicio',),
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets(images/primariavotaciones.jpeg'),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            const Text('GOBIERNO ESCOLAR 2022',),
+            const Text('COLEGIO NUEVA COLOMBIA IED',),
             ElevatedButton(
               child: const Text("Comenzar"),
               onPressed: () {

@@ -19,7 +19,7 @@ Widget cuerpo(){
     decoration: const BoxDecoration(
       image: DecorationImage(
           image: AssetImage ('assets/images/escudoNC.jpg'),
-          fit: BoxFit.cover
+          fit: BoxFit.contain,
       )
     ),
     child: Center(
