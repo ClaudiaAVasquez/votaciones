@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/autenticacion.dart';
+import 'package:votaciones2/pages/sede.dart';
 
 //import 'dart:ffi';
 
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Votaciones Gobierno Escolar IED Nueva Colombia',
       home: MyHomePage(title: 'Widgets'),
     );
@@ -39,14 +40,21 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets(images/primariavotaciones.jpeg'),
-                  fit: BoxFit.contain,
+
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: 300,
+                height: 300,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/primariavotaciones.jpeg'),
+                      fit: BoxFit.cover
+                  ),
                 ),
               ),
             ),
+
             const Text('GOBIERNO ESCOLAR 2022',),
             const Text('COLEGIO NUEVA COLOMBIA IED',),
             ElevatedButton(
@@ -54,7 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context)=> const ingresar())  //Llama la pagina Autenticacion
+                //MaterialPageRoute(builder: (context)=> const ingresar())  //Llama la pagina Autenticacion
+                    MaterialPageRoute(builder: (context)=> const sede())  //Llama la pagina Autenticacion
                 );
               }
             )
