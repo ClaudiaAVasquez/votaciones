@@ -24,7 +24,7 @@ class sede extends StatelessWidget{
   }
 }
 
-var _value="";
+var _value;
 
 Widget escogergrados(BuildContext context){
   return Center(
