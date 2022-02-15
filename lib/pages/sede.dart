@@ -17,12 +17,14 @@ class sede extends StatelessWidget{
       appBar: AppBar(
         title: const Text("Grados"),
       ),
-      body: escogergrados(),
+      body: escogergrados(context),
     );
   }
 }
 
-Widget escogergrados(){
+var _value;
+
+Widget escogergrados(BuildContext context){
 
   return Center(
     child: Row(
@@ -45,13 +47,12 @@ Widget escogergrados(){
         // Con esta propiedad agregamos elevación a nuestro card
         // La sombra que tiene el Card aumentará
             elevation: 10,
-
-        // La propiedad child anida un widget en su interior
-        // Usamos columna para ordenar un ListTile y una fila con botones
             child: Column(
               children: <Widget>[
                 Image(
-                  image: AssetImage('assets/images/votacioneschiqui.jpg'),
+                  image: AssetImage('assets/images/votacioneschiquis.jpg'),
+                  width: 100,
+                  height: 100  ,
                 ),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -63,7 +64,9 @@ Widget escogergrados(){
                         onPressed: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context)=> const ingresar())
+                              MaterialPageRoute(builder: (context) {
+                                return ingresar();
+                              })
                               //MaterialPageRoute(builder: (context)=> const ingresar())  //Llama la pagina Autenticacionjardin
                           );
                         },
@@ -72,10 +75,8 @@ Widget escogergrados(){
                     ],
                   ),
                 ),
-
-                
-                //sedebJ(),
-
+                sedebJ(),
+                Text("La opción es $_value")
               ],
             ),
           ),
@@ -118,7 +119,7 @@ Widget escogergrados(){
             child: Column(
               children: <Widget>[
                 Image(
-                  image: AssetImage('assets/images/votacioneschiqui.jpg'),
+                  image: AssetImage('assets/images/votacioneschiquis.jpg'),
                 ),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -142,7 +143,7 @@ Widget escogergrados(){
             child: Column(
               children: <Widget>[
                 Image(
-                  image: AssetImage('assets/images/votacioneschiqui.jpg'),
+                  image: AssetImage('assets/images/votacioneschiquis.jpg'),
                 ),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -160,14 +161,42 @@ Widget escogergrados(){
 }
 
 Widget sedebJ(){
+
+  return PopupMenuButton(
+    onSelected: (value){
+      setState((){
+        _value = value;
+      });
+    },
+    itemBuilder: (context) => [
+      const PopupMenuItem(
+        child: Text("Jardin"),
+        value: 1,
+      ),
+      const PopupMenuItem(
+        child: Text("Preescolar"),
+        value: 2,
+      ),
+      const PopupMenuItem(
+        child: Text('Transición'),
+        value: 3,
+      ),
+    ],
+  );
+}
+
+
+Widget sedebjj(){
   WhyFarther _selection;
 
   return PopupMenuButton<WhyFarther>(
-    onSelected: (WhyFarther result) {
-      setState(() {
-        _selection = result;
-      });
-    },
+    //onSelected: (WhyFarther result) {
+    // setState(() {
+    //    _selection = result;
+    //    print ("opción");
+    //  });
+    //},
+    onSelected: EscogerOpcion,
     itemBuilder: (BuildContext context) => <PopupMenuEntry<WhyFarther>>[
       const PopupMenuItem<WhyFarther>(
         value: WhyFarther.Jardin,
@@ -183,6 +212,16 @@ Widget sedebJ(){
       ),
     ],
   );
+}
+
+void EscogerOpcion(WhyFarther){
+//  if (WhyFarther == WhyFarther.Jardin){
+//    print("JARDIN");
+//  }else if (WhyFarther == WhyFarther.Preescoar) {
+//    print("PREESCOLAR");
+//  }else if (WhyFarther == WhyFarther.Transicion) {
+//    print("TRANSICION");
+//  }
 }
 
 Widget sedeb(){
@@ -274,3 +313,6 @@ Widget sedeAsecundaria(){
 void setState(Null Function() param0) {
 }
 
+void choiceAction(String choice){
+  print("OPCION");
+}

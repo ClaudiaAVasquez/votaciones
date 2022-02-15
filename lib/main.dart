@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                 context,
                 //MaterialPageRoute(builder: (context)=> const ingresar())  //Llama la pagina Autenticacion
-                    MaterialPageRoute(builder: (context)=> const sede())  //Llama la pagina Autenticacion
+                    MaterialPageRoute(builder: (context)=> const sede())  //Llama la pagina Sede
                 );
               }
             )
