@@ -1,11 +1,9 @@
-import 'dart:js';
+//import 'dart:js';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:votaciones2/pages/autenticacionjardin.dart';
 
-
-enum WhyFarther { Jardin, Preescolar, Transicion}
 enum Primaria { Primero, Segundo}
 enum primariasedea {Tercero, Cuarto, Quinto}
 enum secundaria {Sexto, Septimo, Octavo, Noveno, Decimo, Once}
@@ -24,9 +22,9 @@ class sede extends StatelessWidget{
   }
 }
 
-var _value;
-
+String _value="--";
 Widget escogergrados(BuildContext context){
+  _value="--";
   return Center(
       child: Row(
           children: [
@@ -57,7 +55,8 @@ Widget escogergrados(BuildContext context){
                     enabled: true,
                     onSelected: (value){
                       setState((){
-                        _value = value;
+                        _value = value.toString();
+                        print(_value);//Convierte el obj value en String
                       });
                     },
                     itemBuilder: (context) => [
@@ -75,8 +74,11 @@ Widget escogergrados(BuildContext context){
                       ),
                     ],
                   ),
+                  Container(
+                    child: Text("$_value"),
+                  )
                 ],
-              ),
+              )
             ),
 
             //Card para grados PRIMERO Y SEGUNDO
