@@ -50,13 +50,13 @@ Widget escogergrados(BuildContext context){
                     child: Image.asset('assets/images/votacioneschiquis.jpeg',height: 200, width: 200,),
                   ),
                   PopupMenuButton(
-                    color: Colors.yellowAccent,
+                    color: Colors.deepOrange,
                     elevation: 20,
                     enabled: true,
                     onSelected: (value){
                       setState((){
-                        _value = value.toString();
-                        print(_value);//Convierte el obj value en String
+                        _value = value.toString(); //Convierte el obj value en String
+                        print(_value);
                       });
                     },
                     itemBuilder: (context) => [
@@ -75,8 +75,25 @@ Widget escogergrados(BuildContext context){
                     ],
                   ),
                   Container(
-                    child: Text("$_value"),
+                      child: const Text("JARDIN", style: TextStyle(fontSize: 25, color: Colors.black)),
+                  ),
+
+                  Container(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        textStyle: const TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const ingresar()),
+                        );
+                      },
+                      child: const Text('Login'),
+                    ),
                   )
+
+
                 ],
               )
             ),
@@ -93,6 +110,30 @@ Widget escogergrados(BuildContext context){
                     width: 200,
                     color: Colors.lightGreen,
                     child: Image.asset('assets/images/primariavotaciones.jpeg',height: 180, width: 180,),
+                  ),
+                  PopupMenuButton(
+                    color: Colors.yellowAccent,
+                    elevation: 20,
+                    enabled: true,
+                    onSelected: (value){
+                      setState((){
+                        _value = value.toString(); //Convierte el obj value en String
+                        print(_value);
+                      });
+                    },
+                    itemBuilder: (context) => [
+                      const PopupMenuItem(
+                        child: Text("Primero"),
+                        value: "Primero",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Segundo"),
+                        value: "Segundo",
+                      ),
+                    ],
+                  ),
+                  Container(
+                    child: const Text("PRIMERO y SEGUNDO", style: TextStyle(fontSize: 20, color: Colors.black)),
                   )
                 ],
               ),
@@ -111,6 +152,34 @@ Widget escogergrados(BuildContext context){
                     width: 200,
                     color: Colors.lightGreen,
                     child: Image.asset('assets/images/votaciones3a5.jpg',height: 180, width: 180,),
+                  ),
+                  PopupMenuButton(
+                    color: Colors.lightGreenAccent,
+                    elevation: 20,
+                    enabled: true,
+                    onSelected: (value){
+                      setState((){
+                        _value = value.toString(); //Convierte el obj value en String
+                        print(_value);
+                      });
+                    },
+                    itemBuilder: (context) => [
+                      const PopupMenuItem(
+                        child: Text("Tercero"),
+                        value: "Tercero",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Cuarto"),
+                        value: "Cuarto",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Quinto"),
+                        value: "Quinto",
+                      ),
+                    ],
+                  ),
+                  Container(
+                    child: const Text("TERCERO, CUARTO, QUINTO", style: TextStyle(fontSize: 15, color: Colors.black)),
                   )
                 ],
               ),
@@ -127,15 +196,54 @@ Widget escogergrados(BuildContext context){
                   Container(
                     height: 200,
                     width: 200,
-                    color: Colors.lightGreen,
+                    color: Colors.cyanAccent,
                     child: Image.asset('assets/images/votacionessecundaria.jpg',height: 180, width: 180,),
+                  ),
+                  PopupMenuButton(
+                    color: Colors.cyanAccent,
+                    elevation: 20,
+                    enabled: true,
+                    onSelected: (value){
+                      setState((){
+                      _value = value.toString(); //Convierte el obj value en String
+                      print(_value);
+                      });
+                    },
+                    itemBuilder: (context) => [
+                      const PopupMenuItem(
+                        child: Text("Sexto"),
+                        value: "Sexto",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Séptimo"),
+                        value: "Septimo",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Octavo"),
+                        value: "Octavo",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Noveno"),
+                        value: "Noveno",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Décimo"),
+                        value: "Decimo",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Once"),
+                        value: "Once",
+                      ),
+                    ],
+                  ),
+                  Container(
+                    child: const Text("SECUNDARIA", style: TextStyle(fontSize: 25, color: Colors.black)),
                   )
-                ],
-              ),
-            ),
-
-          ]
-      ),
+              ],
+             ),
+           ),
+          ],
+      )
   );
 }
 

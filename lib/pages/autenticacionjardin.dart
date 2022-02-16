@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:votaciones2/pages/personero.dart';
 
 class ingresar extends StatelessWidget{
   const ingresar({Key? key}) : super(key : key);
@@ -9,12 +10,12 @@ class ingresar extends StatelessWidget{
       appBar: AppBar(
         title: const Text("Autenticación"),
       ),
-      body: cuerpo(),
+      body: cuerpo(context),
     );
   }
 }
 
-Widget cuerpo(){
+Widget cuerpo(BuildContext context){
   return Container(
     decoration: const BoxDecoration(
         image: DecorationImage(
@@ -26,23 +27,23 @@ Widget cuerpo(){
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Sign_in(),
-          campousuario(),
-          campocontrasena(),
+          Sign_in(context),
+          campousuario(context),
+          campocontrasena(context),
           const SizedBox(height: 10,),
-          botonentrar()
+          botonentrar(context)
         ],
       ),
     ),
   );
 }
 
-Widget Sign_in() {
+Widget Sign_in(BuildContext context) {
   return const Text("Iniciar Sesión",
     style: TextStyle(color: Colors.black87, fontSize: 35.0, fontWeight: FontWeight.bold),);
 }
 
-Widget campousuario(){
+Widget campousuario(BuildContext context){
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),      //Darle bordes al TextField
     child: const TextField(
@@ -56,7 +57,7 @@ Widget campousuario(){
   );
 }
 
-Widget campocontrasena(){
+Widget campocontrasena(BuildContext context){
   return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: const TextField(
@@ -71,11 +72,16 @@ Widget campocontrasena(){
   );
 }
 
-Widget botonentrar(){
+Widget botonentrar(BuildContext context){
   return FlatButton(
       color: Colors.blueAccent,
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-      onPressed: (){},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const personero()),
+        );
+      },
       child: Text("Ingresar", style: TextStyle(fontSize: 25, color: Colors.white))
   );
 }
