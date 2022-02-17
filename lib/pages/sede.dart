@@ -1,102 +1,113 @@
-//import 'dart:js';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:votaciones2/pages/autenticacionjardin.dart';
 
-enum Primaria { Primero, Segundo}
-enum primariasedea {Tercero, Cuarto, Quinto}
-enum secundaria {Sexto, Septimo, Octavo, Noveno, Decimo, Once}
-
-class sede extends StatelessWidget{
-  const sede({Key? key}) : super(key : key);
+class sede extends StatelessWidget {
+  const sede({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Grados"),
       ),
-      body: escogergrados(context),
+      body: escogergrados(),
     );
   }
 }
 
+class escogergrados extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return escogergradosState();
+  }
+}
+
 String _value="--";
-Widget escogergrados(BuildContext context){
-  _value="--";
-  return Center(
-      child: Row(
+
+class escogergradosState extends State<escogergrados>{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    _value="--";
+    return Center(
+        child: Row(
           children: [
             //Card para GRADO JARDIN
             Card(
               // Con esta propiedad modificamos la forma de nuestro card
               // Aqui utilizo RoundedRectangleBorder para proporcionarle esquinas circulares al Card
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
 
-              // Con esta propiedad agregamos margen a nuestro Card
-              // El margen es la separación entre widgets o entre los bordes del widget padre e hijo
-              margin: EdgeInsets.all(15),
+                // Con esta propiedad agregamos margen a nuestro Card
+                // El margen es la separación entre widgets o entre los bordes del widget padre e hijo
+                margin: EdgeInsets.all(15),
 
-              // Con esta propiedad agregamos elevación a nuestro card
-              // La sombra que tiene el Card aumentará
-              elevation: 10,
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height:200,
-                    width: 200,
-                    color: Colors.deepOrange,
-                    child: Image.asset('assets/images/votacioneschiquis.jpeg',height: 200, width: 200,),
-                  ),
-                  PopupMenuButton(
-                    color: Colors.deepOrange,
-                    elevation: 20,
-                    enabled: true,
-                    onSelected: (value){
-                      setState((){
-                        _value = value.toString(); //Convierte el obj value en String
-                        print(_value);
-                      });
-                    },
-                    itemBuilder: (context) => [
-                      const PopupMenuItem(
-                        child: Text("Jardin"),
-                        value: "Jardin",
-                      ),
-                      const PopupMenuItem(
-                        child: Text("Preescolar"),
-                        value: "Preescolar",
-                      ),
-                      const PopupMenuItem(
-                        child: Text('Transición'),
-                        value: "Transicion",
-                      ),
-                    ],
-                  ),
-                  Container(
-                      child: const Text("JARDIN", style: TextStyle(fontSize: 25, color: Colors.black)),
-                  ),
-
-                  Container(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 20),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const ingresar()),
-                        );
-                      },
-                      child: const Text('Login'),
+                // Con esta propiedad agregamos elevación a nuestro card
+                // La sombra que tiene el Card aumentará
+                elevation: 10,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height:200,
+                      width: 200,
+                      color: Colors.deepOrange,
+                      child: Image.asset('assets/images/votacioneschiquis.jpeg',height: 200, width: 200,),
                     ),
-                  )
+                    PopupMenuButton(
+                      color: Colors.deepOrange,
+                      elevation: 20,
+                      enabled: true,
+                      onSelected: (value){
+                        setState((){
+                          _value = value.toString(); //Convierte el obj value en String
+                          if (_value == 'Jardin') {
+                            _CupertinoJardin(context);
+                          } else if (_value == 'Preescolar') {
+                            _CupertinoPreescolar(context);
+                          } else if (_value == 'Transicion') {
+                            _CupertinoTransicion(context);
+                          }
+                        });
+                      },
+                      itemBuilder: (context) => [
+                        const PopupMenuItem(
+                          child: Text("Jardin"),
+                          value: "Jardin",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Preescolar"),
+                          value: "Preescolar",
+                        ),
+                        const PopupMenuItem(
+                          child: Text('Transición'),
+                          value: "Transicion",
+                        ),
+                      ],
+                    ),
+                    Container(
+                      child: const Text("JARDIN", style: TextStyle(fontSize: 25, color: Colors.black)),
+                    ),
 
-
-                ],
-              )
+                    //Contenedor con un TextButton para testear
+                    //Container(
+                      //child: TextButton(
+                        //style: TextButton.styleFrom(
+                          //textStyle: const TextStyle(fontSize: 20),
+                        //),
+                        //onPressed: () {
+                          //Navigator.push(
+                            //context,
+                            //MaterialPageRoute(builder: (context) => const ingresar()),
+                          //);
+                        //},
+                        //child: const Text('Login'),
+                      //),
+                    //)
+                  ],
+                )
             ),
+
 
             //Card para grados PRIMERO Y SEGUNDO
             Card(
@@ -118,7 +129,7 @@ Widget escogergrados(BuildContext context){
                     onSelected: (value){
                       setState((){
                         _value = value.toString(); //Convierte el obj value en String
-                        print(_value);
+                        //print(_value);
                       });
                     },
                     itemBuilder: (context) => [
@@ -160,7 +171,7 @@ Widget escogergrados(BuildContext context){
                     onSelected: (value){
                       setState((){
                         _value = value.toString(); //Convierte el obj value en String
-                        print(_value);
+                        //print(_value);
                       });
                     },
                     itemBuilder: (context) => [
@@ -205,8 +216,8 @@ Widget escogergrados(BuildContext context){
                     enabled: true,
                     onSelected: (value){
                       setState((){
-                      _value = value.toString(); //Convierte el obj value en String
-                      print(_value);
+                        _value = value.toString(); //Convierte el obj value en String
+                        //print(_value);
                       });
                     },
                     itemBuilder: (context) => [
@@ -239,13 +250,89 @@ Widget escogergrados(BuildContext context){
                   Container(
                     child: const Text("SECUNDARIA", style: TextStyle(fontSize: 25, color: Colors.black)),
                   )
-              ],
-             ),
-           ),
+                ],
+              ),
+            ),
           ],
-      )
-  );
-}
+        )
+    );
+  }
+  
+  void _CupertinoJardin(BuildContext context){
+    final jardin = ['Jardin01', 'Jardin02', 'Jardin03', 'Jardin04', 'Jardin05', 'Jardin06'];
 
-void setState(Null Function() param0) {
-}
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(jardin.length, (index) {
+                final String nombre = jardin[index];
+                return CupertinoActionSheetAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(nombre),
+                );
+              }),
+            ],
+          );
+    });
+  }
+
+  void _CupertinoPreescolar(BuildContext context) {
+    final preescolar = ['Preescolar01', 'Preescolar02', 'Preescolar03'];
+
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(preescolar.length, (index) {
+                final String nombre = preescolar[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+          );
+        });
+  }
+
+    void _CupertinoTransicion(BuildContext context) {
+      final transicion = [
+        'Transición01',
+        'Transición02',
+        'Transición03',
+        'Transición04',
+        'Transición05',
+        'Transición06'
+      ];
+      showCupertinoModalPopup(
+          context: context,
+          builder: (_) {
+            return CupertinoActionSheet(
+              title: Text("Selecciona el curso"),
+              message: Text("Abrir curso para votar"),
+              actions: [
+                ...List.generate(transicion.length, (index) {
+                  final String nombre = transicion[index];
+                  return CupertinoActionSheetAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(nombre),
+                  );
+                }),
+              ],
+            );
+          });
+    }
+  }
