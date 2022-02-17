@@ -129,7 +129,11 @@ class escogergradosState extends State<escogergrados>{
                     onSelected: (value){
                       setState((){
                         _value = value.toString(); //Convierte el obj value en String
-                        //print(_value);
+                        if (_value == 'Primero') {
+                          _CupertinoPrimero(context);
+                        } else if (_value == 'Segundo') {
+                          _CupertinoSegundo(context);
+                        }
                       });
                     },
                     itemBuilder: (context) => [
@@ -171,7 +175,13 @@ class escogergradosState extends State<escogergrados>{
                     onSelected: (value){
                       setState((){
                         _value = value.toString(); //Convierte el obj value en String
-                        //print(_value);
+                        if (_value == 'Tercero') {
+                          _CupertinoTercero(context);
+                        } else if (_value == 'Cuarto') {
+                          _CupertinoCuarto(context);
+                        } else if (_value == 'Quinto') {
+                          _CupertinoQuinto(context);
+                        }
                       });
                     },
                     itemBuilder: (context) => [
@@ -217,7 +227,19 @@ class escogergradosState extends State<escogergrados>{
                     onSelected: (value){
                       setState((){
                         _value = value.toString(); //Convierte el obj value en String
-                        //print(_value);
+                        if (_value == 'Sexto') {
+                          _CupertinoSexto(context);
+                        } else if (_value == 'Septimo') {
+                          _CupertinoSeptimo(context);
+                        } else if (_value == 'Octavo') {
+                          _CupertinoOctavo(context);
+                        }else if (_value == 'Noveno') {
+                          _CupertinoNoveno(context);
+                        }else if (_value == 'Decimo') {
+                          _CupertinoDecimo(context);
+                        }else if (_value == 'Once') {
+                          _CupertinoOnce(context);
+                        }
                       });
                     },
                     itemBuilder: (context) => [
@@ -272,12 +294,19 @@ class escogergradosState extends State<escogergrados>{
                 final String nombre = jardin[index];
                 return CupertinoActionSheetAction(
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const ingresar()));
                     },
                     child: Text(nombre),
                 );
               }),
             ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
           );
     });
   }
@@ -302,6 +331,13 @@ class escogergradosState extends State<escogergrados>{
                 );
               }),
             ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
           );
         });
   }
@@ -332,7 +368,435 @@ class escogergradosState extends State<escogergrados>{
                   );
                 }),
               ],
+              cancelButton: CupertinoActionSheetAction(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Cancelar"),
+                isDestructiveAction: true,
+              ),
             );
           });
     }
+
+  void _CupertinoPrimero(BuildContext context) {
+    final primero = [
+      '101',
+      '102',
+      '103',
+      '104',
+      '105',
+      '106',
+      '107',
+      '108',
+      '109'
+      '110',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            //message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(primero.length, (index) {
+                final String nombre = primero[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+
   }
+
+  void _CupertinoSegundo(BuildContext context) {
+    final segundo = [
+      '201',
+      '202',
+      '203',
+      '304',
+      '205',
+      '206',
+      '207',
+      '208',
+      '209',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(segundo.length, (index) {
+                final String nombre = segundo[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoTercero(BuildContext context) {
+    final tercero = [
+      '301',
+      '302',
+      '303',
+      '304',
+      '305',
+      '306',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(tercero.length, (index) {
+                final String nombre = tercero[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoCuarto(BuildContext context) {
+    final cuarto = [
+      '401',
+      '402',
+      '403',
+      '404',
+      '405',
+      '406',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(cuarto.length, (index) {
+                final String nombre = cuarto[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoQuinto(BuildContext context) {
+    final quinto = [
+      '501',
+      '502',
+      '503',
+      '504',
+      '505',
+      '506',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(quinto.length, (index) {
+                final String nombre = quinto[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoSexto(BuildContext context) {
+    final sexto = [
+      '601',
+      '602',
+      '603',
+      '604',
+      '605',
+      '606',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(sexto.length, (index) {
+                final String nombre = sexto[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoSeptimo(BuildContext context) {
+    final septimo = [
+      '701',
+      '702',
+      '703',
+      '704',
+      '705',
+      '706',
+      '707',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(septimo.length, (index) {
+                final String nombre = septimo[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoOctavo(BuildContext context) {
+    final octavo = [
+      '801',
+      '802',
+      '803',
+      '804',
+      '805',
+      '806',
+      '807',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(octavo.length, (index) {
+                final String nombre = octavo[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoNoveno(BuildContext context) {
+    final noveno = [
+      '901',
+      '902',
+      '903',
+      '904',
+      '905',
+      '906',
+      '907',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(noveno.length, (index) {
+                final String nombre = noveno[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoDecimo(BuildContext context) {
+    final decimo = [
+      '1001',
+      '1002',
+      '1003',
+      '1004',
+      '1005',
+      '1006',
+      '1007',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(decimo.length, (index) {
+                final String nombre = decimo[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+
+  void _CupertinoOnce(BuildContext context) {
+    final once = [
+      '1101',
+      '1102',
+      '1103',
+      '1104',
+      '1105',
+      '1106',
+      '1107',
+    ];
+    showCupertinoModalPopup(
+        context: context,
+        builder: (_) {
+          return CupertinoActionSheet(
+            title: Text("Selecciona el curso"),
+            message: Text("Abrir curso para votar"),
+            actions: [
+              ...List.generate(once.length, (index) {
+                final String nombre = once[index];
+                return CupertinoActionSheetAction(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(nombre),
+                );
+              }),
+            ],
+            cancelButton: CupertinoActionSheetAction(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text("Cancelar"),
+              isDestructiveAction: true,
+            ),
+          );
+        });
+  }
+}
+

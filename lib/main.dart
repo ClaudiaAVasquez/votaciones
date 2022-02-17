@@ -55,10 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            const Text('GOBIERNO ESCOLAR 2022',),
-            const Text('COLEGIO NUEVA COLOMBIA IED',),
+            const Text('GOBIERNO ESCOLAR 2022', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 40),),
+            const Text('COLEGIO NUEVA COLOMBIA IED',style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
             ElevatedButton(
-              child: const Text("Comenzar"),
+              child: const Text("Comenzar", style: TextStyle(fontSize: 30),),
               onPressed: () {
                 Navigator.push(
                 context,
