@@ -3,6 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'personero.dart';
+
 class cabildante extends StatelessWidget{
   const cabildante({Key? key}) : super(key : key);
 
@@ -10,7 +12,7 @@ class cabildante extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: const Text("CONTRALOR"),
+        title: const Text("CABILDANTE"),
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
@@ -19,23 +21,59 @@ class cabildante extends StatelessWidget{
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
             children: [
-              MyButton('assets/images/MariaValentinaGonzalez.jpg'),
-              MyButton('assets/images/KarolValentinaDiaz.jpg'),
-              MyButton('assets/images/SharickMelissaMoreno.jpg'),
-              MyButton('assets/images/Votoenblanco.jpg'),
+              MyButton('assets/images/MariaValentinaGonzalez.jpg', context),
+              MyButton('assets/images/KarolValentinaDiaz.jpg', context),
+              MyButton('assets/images/SharickMelissaMoreno.jpg', context),
+              MyButton('assets/images/Votoenblanco.jpg', context),
             ]
         ),
       ),
     );
   }
 
-  RaisedButton MyButton(String imagen) {
+  RaisedButton MyButton(String imagen, BuildContext context) {
     return RaisedButton(
         child: Image.asset(
           imagen,
           height: 180, width: 180,
         ),
-        onPressed: () {}
+        onPressed: () {
+          mostrarAlerta(context);
+        }
     );
   }
 }
+
+
+void mostrarAlerta(BuildContext context) {
+  showDialog(
+      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+      builder: (context){
+        return AlertDialog(
+          title: Text("Votación Cabildante"),
+          content: Text("Estas votando por xxxxxx, estas seguro?"),
+          actions: <Widget>[
+            TextButton(
+                onPressed: () {
+                  print("No");
+                  Navigator.pop(context);
+                },
+                child: Text("No")
+            ),
+            TextButton(
+              onPressed: () {
+                //print("Si");
+                //Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const personero()),
+                );
+              },
+              child: Text("Si"),
+            )
+          ],
+        );
+      },
+      context: context);
+}
+
