@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:votaciones2/pages/iniciarvotaciones.dart';
 
 import 'personero.dart';
 
@@ -66,7 +67,7 @@ void mostrarAlerta(BuildContext context) {
                 //Navigator.pop(context);
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const personero()),
+                    MaterialPageRoute(builder: (context) => const iniciarvotaciones()),
                 );
               },
               child: Text("Si"),

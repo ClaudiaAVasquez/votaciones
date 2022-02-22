@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'cabildante.dart';
 
 class contralor extends StatelessWidget{
-  const contralor({Key? key}) : super(key : key);
+  const contralor({Key? key, required this.person}) : super(key : key);
+  final String person;
 
   @override
   Widget build(BuildContext context){
@@ -22,7 +23,7 @@ class contralor extends StatelessWidget{
             mainAxisSpacing: 5,
             children: [
               MyButton('assets/images/DannaSofiaSalamanca.jpg', context),
-              MyButton('assets/images/DianiNataliMuñoz.jpg', context),
+              MyButton('assets/images/DianaNataliMunoz.jpg', context),
               MyButton('assets/images/JoelStevenMedina.jpg', context),
               MyButton('assets/images/AngieLorenaDiaz.jpg', context),
               MyButton('assets/images/AlexandraUrdaneta.jpg', context),

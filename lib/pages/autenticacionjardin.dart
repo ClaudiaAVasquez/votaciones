@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:votaciones2/pages/iniciarvotaciones.dart';
 import 'package:votaciones2/pages/personero.dart';
 
+final leeUsuario = TextEditingController();
+final leePassword = TextEditingController();
+
+var usuario ="";
+var password = "";
+
 class ingresar extends StatelessWidget {
-  const ingresar({Key? key}) : super(key: key);
+  const ingresar({Key? key, required this.usu, required this.pass}) : super(key: key);
+  final String usu, pass;
 
   @override
   Widget build(BuildContext context) {
@@ -10,22 +18,25 @@ class ingresar extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Autenticación"),
       ),
-      body: cuerpo(context),
+      body: cuerpo(usu: usu, pass: pass),
     );
   }
 }
 
 class cuerpo extends StatefulWidget {
+  const cuerpo({Key? key, required this.usu, required this.pass}) : super(key: key);
+  final String usu, pass;
 
-  cuerpo(BuildContext context);
   @override
   State<StatefulWidget> createState() {
-    return cuerpoState();
+    return cuerpoState(usu: usu, pass: pass);
   }
 }
 
 class cuerpoState extends State<cuerpo>{
-  final password = TextEditingController();
+  cuerpoState({Key? key, required this.usu, required this.pass});
+  final String usu, pass;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -44,7 +55,7 @@ class cuerpoState extends State<cuerpo>{
             campousuario(context),
             campocontrasena(context),
             const SizedBox(height: 10,),
-            botonentrar(context)
+            botonentrar(context, usu, pass)
           ],
         ),
       ),
@@ -59,12 +70,9 @@ Widget Sign_in(BuildContext context) {
 
 Widget campousuario(BuildContext context){
 
-  //final void Function(String) onChanged;
-
-  final usuario= TextEditingController();
   return Container(
       padding: const EdgeInsets.all(20),      //Darle bordes al TextField
-      child: const TextField(
+      child: TextField(
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
@@ -77,35 +85,41 @@ Widget campousuario(BuildContext context){
             fillColor: Colors.white,
             filled: true,
           ),
+        controller: leeUsuario,
       ),
   );
 }
 
 Widget campocontrasena(BuildContext context){
+
   return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      child: const TextField(
+      child: TextField(
           obscureText: true,
           decoration: InputDecoration(
             hintText: "Contraseña",
             prefixIcon: Icon(Icons.lock),
             fillColor: Colors.white,
             filled: true,
-          )
+          ),
+        controller: leePassword,
       )
   );
 }
 
-Widget botonentrar(BuildContext context) {
+Widget botonentrar(BuildContext context, String usu, String pass) {
   return FlatButton(
       color: Colors.blueAccent,
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       onPressed: () {
-        var usuario;
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const personero()),
-        );
+        usuario = leeUsuario.text;
+        password = leePassword.text;
+        if ((usuario == usu) && (password == pass)){
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const iniciarvotaciones()),
+          );
+        }
       },
       child: Text(
           "Ingresar", style: TextStyle(fontSize: 25, color: Colors.white))

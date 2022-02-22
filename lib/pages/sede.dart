@@ -41,7 +41,7 @@ class escogergradosState extends State<escogergrados> {
     _value = "--";
     return Center(
         child: Row(
-          children: [
+          children: <Widget>[
 
             //Card para GRADO PREJARDIN
             Flexible(child: Card(
@@ -83,19 +83,9 @@ class escogergradosState extends State<escogergrados> {
                               .toString(); //Convierte el obj value en String
                           print(_value);
                           controlador.text = _value;
-                          if (_value == 'PreJardin') {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context)=> cursos(controlador.text)));
-                          } else if (_value == 'Jardin') {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context)=> cursos(controlador.text)));
-                          } else if (_value == 'Transicion') {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context)=> cursos(controlador.text)));
-                          }
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=> cursos(texto: controlador.text)));
                         });
                       },
                       itemBuilder: (context) =>
@@ -125,21 +115,220 @@ class escogergradosState extends State<escogergrados> {
                           ),
                         )
                     ),
-                    //Contenedor con un TextButton para testear
-                    //Container(
-                    //child: TextButton(
-                    //style: TextButton.styleFrom(
-                    //textStyle: const TextStyle(fontSize: 20),
-                    //),
-                    //onPressed: () {
-                    //Navigator.push(
-                    //context,
-                    //MaterialPageRoute(builder: (context) => const ingresar()),
-                    //);
-                    //},
-                    //child: const Text('Login'),
-                    //),
-                    //)
+                  ],
+                )
+            ),
+            ),
+
+
+
+            //Card para GRADO PRIMERO Y SEGUNDO
+            Flexible(child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.all(15),
+                elevation: 10,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 200,
+                      width: 200,
+                      color: Colors.white,
+                      child: Image.asset(
+                        'assets/images/primariavotaciones.jpeg', height: 200,
+                        width: 200,),
+                    ),
+                    Container(
+                      child: const Text("PRIMERO Y SEGUNDO",
+                          style: TextStyle(fontSize: 25, color: Colors.black)),
+                      padding: EdgeInsets.all(20),
+                    ),
+                    PopupMenuButton(
+                      color: Colors.white,
+                      elevation: 20,
+                      enabled: true,
+                      onSelected: (value) {
+                        setState(() {
+                          _value = value.toString(); //Convierte el obj value en String
+                          print(_value);
+                          controlador.text = _value;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context)=> cursos(texto: controlador.text)));
+                        });
+                      },
+                      itemBuilder: (context) =>
+                      [
+                        const PopupMenuItem(
+                          child: Text("Primero"),
+                          value: "Primero",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Segundo"),
+                          value: "Segundo",
+                        ),
+                      ],
+                    ),
+                    Container(
+                        padding: EdgeInsets.symmetric(),
+                        child: TextField(
+                          controller: controlador,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            fillColor: Colors.blueGrey,
+                            filled: true,
+                          ),
+                        )
+                    ),
+                  ],
+                )
+            ),
+            ),
+
+
+
+            //Card para GRADO TERCERO, CUARTO Y QUINTO
+            Flexible(child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.all(15),
+                elevation: 10,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 200,
+                      width: 200,
+                      color: Colors.white,
+                      child: Image.asset(
+                        'assets/images/votaciones3a5.jpg', height: 200,
+                        width: 200,),
+                    ),
+                    Container(
+                      child: const Text("3o - 4o - 5o",
+                          style: TextStyle(fontSize: 25, color: Colors.black)),
+                      padding: EdgeInsets.all(20),
+                    ),
+                    PopupMenuButton(
+                      color: Colors.white,
+                      elevation: 20,
+                      enabled: true,
+                      onSelected: (value) {
+                        setState(() {
+                          _value = value.toString(); //Convierte el obj value en String
+                          print(_value);
+                          controlador.text = _value;
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=> cursos(texto: controlador.text)));
+                        });
+                      },
+                      itemBuilder: (context) =>
+                      [
+                        const PopupMenuItem(
+                          child: Text("Tercero"),
+                          value: "Tercero",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Cuarto"),
+                          value: "Cuarto",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Quinto"),
+                          value: "Quinto",
+                        ),
+                      ],
+                    ),
+                    Container(
+                        padding: EdgeInsets.symmetric(),
+                        child: TextField(
+                          controller: controlador,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            fillColor: Colors.amberAccent,
+                            filled: true,
+                          ),
+                        )
+                    ),
+                  ],
+                )
+            ),
+            ),
+
+
+            //Card para SECUNDARIA
+            Flexible(child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                margin: EdgeInsets.all(15),
+                elevation: 10,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 200,
+                      width: 200,
+                      color: Colors.white,
+                      child: Image.asset(
+                        'assets/images/votacionessecundaria.jpg', height: 200,
+                        width: 200,),
+                    ),
+                    Container(
+                      child: const Text("SECUNDARIA",
+                          style: TextStyle(fontSize: 25, color: Colors.black)),
+                      padding: EdgeInsets.all(20),
+                    ),
+                    PopupMenuButton(
+                      color: Colors.white,
+                      elevation: 20,
+                      enabled: true,
+                      onSelected: (value) {
+                        setState(() {
+                          _value = value.toString(); //Convierte el obj value en String
+                          print(_value);
+                          controlador.text = _value;
+                          Navigator.push(
+                            context,
+                              MaterialPageRoute(builder: (context)=> cursos(texto: controlador.text)));
+                        });
+                      },
+                      itemBuilder: (context) =>
+                      [
+                        const PopupMenuItem(
+                          child: Text("Sexto"),
+                          value: "Sexto",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Séptimo"),
+                          value: "Septimo",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Octavo"),
+                          value: "Octavo",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Noveno"),
+                          value: "Noveno",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Décimo"),
+                          value: "Decimo",
+                        ),
+                        const PopupMenuItem(
+                          child: Text("Once"),
+                          value: "Once",
+                        ),
+                      ],
+                    ),
+                    Container(
+                        padding: EdgeInsets.symmetric(),
+                        child: TextField(
+                          controller: controlador,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            fillColor: Colors.blue,
+                            filled: true,
+                          ),
+                        )
+                    ),
                   ],
                 )
             ),
