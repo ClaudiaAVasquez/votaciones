@@ -1,12 +1,13 @@
 //https://www.youtube.com/watch?v=RyIdsu4JUBo
-
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cabildante.dart';
 
 class contralor extends StatelessWidget{
-  const contralor({Key? key, required this.person}) : super(key : key);
+  const contralor({Key? key, required this.archivo, required this.person}) : super(key : key);
+  final File archivo;
   final String person;
 
   @override
@@ -21,62 +22,333 @@ class contralor extends StatelessWidget{
             crossAxisCount: 3,      //Cuántos elementos tendra de forma horizontal máximo acomada 3 por fila
             crossAxisSpacing: 5,
             mainAxisSpacing: 5,
-            children: [
-              MyButton('assets/images/DannaSofiaSalamanca.jpg', context),
-              MyButton('assets/images/DianaNataliMunoz.jpg', context),
-              MyButton('assets/images/JoelStevenMedina.jpg', context),
-              MyButton('assets/images/AngieLorenaDiaz.jpg', context),
-              MyButton('assets/images/AlexandraUrdaneta.jpg', context),
-              MyButton('assets/images/SarayNicoleElegalde.jpg', context),
-              MyButton('assets/images/KarolDanielaLopez.jpg', context),
-              MyButton('assets/images/Votoenblanco.jpg', context),
+            children: <Widget>[
+              RaisedButton(
+                color: Colors.pinkAccent[100],
+                child: Image.asset('assets/images/DannaSofiaSalamanca.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando por Danna Sofia Salamanca, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "1")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
+
+              RaisedButton(
+                color: Colors.yellow,
+                child: Image.asset('assets/images/DianaNataliMunoz.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando por Diana Natali Muñoz, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "2")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
+
+              RaisedButton(
+                color: Colors.deepPurple,
+                child: Image.asset('assets/images/JoelStevenMedina.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando por Joel Steven Medina, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "3")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
+
+              RaisedButton(
+                color: Colors.orange,
+                child: Image.asset('assets/images/AngieLorenaDiaz.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando por Angie Lorena Diaz, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "4")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
+
+              RaisedButton(
+                color: Colors.lightGreenAccent,
+                child: Image.asset('assets/images/AlexandraUrdaneta.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando por Angie Lorena Diaz, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "5")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
+
+              RaisedButton(
+                color: Colors.blue,
+                child: Image.asset('assets/images/SarayNicoleElegalde.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando por Saray Nicole Elegalde, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "6")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
+
+              RaisedButton(
+                color: Colors.pink,
+                child: Image.asset('assets/images/KarolDanielaLopez.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando por Karol Daniela López, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "7")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
+
+              RaisedButton(
+                color: Colors.blue,
+                child: Image.asset('assets/images/KarolDanielaLopez.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando por Karol Daniela López, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "8")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
+
+              RaisedButton(
+                color: Colors.white,
+                child: Image.asset('assets/images/Votoenblanco.jpg'),
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
+                      builder: (context){
+                        return AlertDialog(
+                          title: Text("Votación Contralor"),
+                          content: Text("Estas votando en BLANCO, estas seguro?"),
+                          actions: <Widget>[
+                            TextButton(
+                                onPressed: () {
+                                  print("No");
+                                  Navigator.pop(context);
+                                },
+                                child: Text("No")
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                print("Si");
+                                //Navigator.pop(context);
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "9")),
+                                );
+                              },
+                              child: Text("Si"),
+                            )
+                          ],
+                        );
+                      },
+                      context: context);
+                },
+              ),
             ]
         ),
       ),
     );
   }
-
-  RaisedButton MyButton(String imagen, BuildContext context) {
-    return RaisedButton(
-        child: Image.asset(
-          imagen,
-          height: 180, width: 180,
-        ),
-        onPressed: () {
-          mostrarAlerta(context);
-        }
-    );
-  }
-}
-
-void mostrarAlerta(BuildContext context) {
-  showDialog(
-      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
-      builder: (context){
-        return AlertDialog(
-          title: Text("Votación Contralor"),
-          content: Text("Estas votando por xxxxxx, estas seguro?"),
-          actions: <Widget>[
-            TextButton(
-                onPressed: () {
-                  print("No");
-                  Navigator.pop(context);
-                },
-                child: Text("No")
-            ),
-            TextButton(
-              onPressed: () {
-                print("Si");
-                //Navigator.pop(context);
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const cabildante()),
-                );
-              },
-              child: Text("Si"),
-            )
-          ],
-        );
-      },
-      context: context);
 }

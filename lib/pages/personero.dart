@@ -1,14 +1,17 @@
 //https://www.youtube.com/watch?v=RyIdsu4JUBo
 
 //import 'dart:js';
-
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:votaciones2/pages/contralor.dart';
 
+import 'archivo.dart';
+
 
 class personero extends StatelessWidget {
-  const personero({Key? key}) : super(key: key);
+  const personero({Key? key, required this.archivo}) : super(key: key);
+  final File archivo;
 
   @override
   Widget build(BuildContext context) {
@@ -30,20 +33,24 @@ class personero extends StatelessWidget {
           ),
         ],
       ),
-      body: votarpersoneros(),
+      body: votarpersoneros(archivo: archivo),
     );
   }
 }
 
 
 class votarpersoneros extends StatefulWidget {
+  const votarpersoneros({Key? key, required this.archivo}) : super(key: key);
+  final File archivo;
   @override
   State<StatefulWidget> createState() {
-    return votarpersonerosState();
+    return votarpersonerosState(archivo: archivo);
   }
 }
 
 class votarpersonerosState extends State<votarpersoneros>{
+  votarpersonerosState({Key? key, required this.archivo});
+  final File archivo;
 
   int _contadorpersonero1 = 0;
   int _contadorpersonero2 = 0;
@@ -86,7 +93,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                                 print(_contadorpersonero1);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const contralor(person: "1")),
+                                  MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "1")),
                                   );
                                 },
                               child: Text("Si"),
@@ -123,7 +130,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                                 _contadorpersonero2++;
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const contralor(person: "2")),
+                                  MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "2")),
                                 );
                               },
                               child: Text("Si"),
@@ -159,7 +166,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                               _contadorpersonero3++;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const contralor(person: "3")),
+                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "3")),
                               );
                             },
                             child: Text("Si"),
@@ -195,7 +202,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                               _contadorpersonero4++;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const contralor(person: "4")),
+                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "4")),
                               );
                             },
                             child: Text("Si"),
@@ -231,7 +238,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                               _contadorpersonero5++;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const contralor(person: "5")),
+                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "5")),
                               );
                             },
                             child: Text("Si"),
@@ -269,7 +276,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                               _contadorpersonero6++;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const contralor(person: "6")),
+                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "6")),
                               );
                             },
                             child: Text("Si"),

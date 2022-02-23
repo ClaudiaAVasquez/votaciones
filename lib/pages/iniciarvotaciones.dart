@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:votaciones2/pages/personero.dart';
+import 'dart:io';
 
 class iniciarvotaciones extends StatelessWidget {
-  const iniciarvotaciones({Key? key}) : super(key: key);
+  const iniciarvotaciones({Key? key, required this.archivo}) : super(key: key);
+  final File archivo;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class iniciarvotaciones extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context)=> personero()));
+                      MaterialPageRoute(builder: (context)=> personero(archivo: archivo)));
                 }
             ),
         ),

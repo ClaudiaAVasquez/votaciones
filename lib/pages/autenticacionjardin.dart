@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:votaciones2/pages/iniciarvotaciones.dart';
 import 'package:votaciones2/pages/personero.dart';
 
+import 'archivo.dart';
+import "dart:io";
+
+
 final leeUsuario = TextEditingController();
 final leePassword = TextEditingController();
+final leenumtablet = TextEditingController();
 
 var usuario ="";
 var password = "";
+var numtablet = "";
 
 class ingresar extends StatelessWidget {
-  const ingresar({Key? key, required this.usu, required this.pass}) : super(key: key);
-  final String usu, pass;
+
+  const ingresar({Key? key, required this.usu, required this.pass, required this.curso}) : super(key: key);
+  final String usu, pass, curso;
 
   @override
   Widget build(BuildContext context) {
@@ -18,24 +25,24 @@ class ingresar extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Autenticación"),
       ),
-      body: cuerpo(usu: usu, pass: pass),
+      body: cuerpo(usu: usu, pass: pass, curso: curso),
     );
   }
 }
 
 class cuerpo extends StatefulWidget {
-  const cuerpo({Key? key, required this.usu, required this.pass}) : super(key: key);
-  final String usu, pass;
+  const cuerpo({Key? key, required this.usu, required this.pass, required this.curso}) : super(key: key);
+  final String usu, pass, curso;
 
   @override
   State<StatefulWidget> createState() {
-    return cuerpoState(usu: usu, pass: pass);
+    return cuerpoState(usu: usu, pass: pass, curso: curso);
   }
 }
 
 class cuerpoState extends State<cuerpo>{
-  cuerpoState({Key? key, required this.usu, required this.pass});
-  final String usu, pass;
+  cuerpoState({Key? key, required this.usu, required this.pass, required this.curso});
+  final String usu, pass, curso;
 
   @override
   Widget build(BuildContext context) {
@@ -54,11 +61,12 @@ class cuerpoState extends State<cuerpo>{
             Sign_in(context),
             campousuario(context),
             campocontrasena(context),
+            campotablet(context),
             const SizedBox(height: 10,),
-            botonentrar(context, usu, pass)
+            botonentrar(context, usu, pass, curso)
           ],
         ),
-      ),
+        ),
     );
   }
 }
@@ -107,17 +115,34 @@ Widget campocontrasena(BuildContext context){
   );
 }
 
-Widget botonentrar(BuildContext context, String usu, String pass) {
+Widget campotablet(BuildContext context){
+  return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: "Número de Tablet",
+          prefixIcon: Icon(Icons.tablet_android),
+          fillColor: Colors.white,
+          filled: true,
+        ),
+        controller: leenumtablet,
+      )
+  );
+}
+
+Widget botonentrar(BuildContext context, String usu, String pass, String curso) {
   return FlatButton(
       color: Colors.blueAccent,
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-      onPressed: () {
+      onPressed: () async {
         usuario = leeUsuario.text;
         password = leePassword.text;
+        numtablet = leenumtablet.text;
+        final File archivo = await nombrearchivo(curso, numtablet);
         if ((usuario == usu) && (password == pass)){
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const iniciarvotaciones()),
+            MaterialPageRoute(builder: (context) => iniciarvotaciones(archivo: archivo)),
           );
         }
       },
