@@ -6,9 +6,18 @@ import 'package:flutter/material.dart';
 import 'cabildante.dart';
 
 class contralor extends StatelessWidget{
-  const contralor({Key? key, required this.archivo, required this.person}) : super(key : key);
+  contralor({Key? key, required this.archivo, required this.person}) : super(key : key);
   final File archivo;
   final String person;
+
+
+  int _contadorcontralor1 = 0;
+  int _contadorcontralor2 = 0;
+  int _contadorcontralor3 = 0;
+  int _contadorcontralor4 = 0;
+  int _contadorcontralor5 = 0;
+  int _contadorcontralor6 = 0;
+
 
   @override
   Widget build(BuildContext context){

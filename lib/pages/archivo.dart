@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
 //Variable de la ubicación
-Future<String> get _localPath async{
+String get _localPath{
   final Directory directorio = getApplicationDocumentsDirectory() as Directory;
   print("Directorio $directorio.path");
   return directorio.path;
