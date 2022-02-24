@@ -10,13 +10,14 @@ class contralor extends StatelessWidget{
   final File archivo;
   final String person;
 
-
   int _contadorcontralor1 = 0;
   int _contadorcontralor2 = 0;
   int _contadorcontralor3 = 0;
   int _contadorcontralor4 = 0;
   int _contadorcontralor5 = 0;
   int _contadorcontralor6 = 0;
+  int _contadorcontralor7 = 0;
+  int _contadorcontralor8 = 0;
 
 
   @override
@@ -53,10 +54,11 @@ class contralor extends StatelessWidget{
                             TextButton(
                               onPressed: () {
                                 print("Si");
+                                _contadorcontralor1++;
                                 //Navigator.pop(context);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "1")),
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "7")),
                                 );
                               },
                               child: Text("Si"),
@@ -89,10 +91,11 @@ class contralor extends StatelessWidget{
                             TextButton(
                               onPressed: () {
                                 print("Si");
+                                _contadorcontralor2++;
                                 //Navigator.pop(context);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "2")),
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "4")),
                                 );
                               },
                               child: Text("Si"),
@@ -125,6 +128,7 @@ class contralor extends StatelessWidget{
                             TextButton(
                               onPressed: () {
                                 print("Si");
+                                _contadorcontralor3++;
                                 //Navigator.pop(context);
                                 Navigator.push(
                                   context,
@@ -161,10 +165,11 @@ class contralor extends StatelessWidget{
                             TextButton(
                               onPressed: () {
                                 print("Si");
+                                _contadorcontralor4++;
                                 //Navigator.pop(context);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "4")),
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "6")),
                                 );
                               },
                               child: Text("Si"),
@@ -185,7 +190,7 @@ class contralor extends StatelessWidget{
                       builder: (context){
                         return AlertDialog(
                           title: Text("Votación Contralor"),
-                          content: Text("Estas votando por Angie Lorena Diaz, estas seguro?"),
+                          content: Text("Estas votando por Alexandra Urdaneta, estas seguro?"),
                           actions: <Widget>[
                             TextButton(
                                 onPressed: () {
@@ -197,6 +202,7 @@ class contralor extends StatelessWidget{
                             TextButton(
                               onPressed: () {
                                 print("Si");
+                                _contadorcontralor5++;
                                 //Navigator.pop(context);
                                 Navigator.push(
                                   context,
@@ -233,10 +239,11 @@ class contralor extends StatelessWidget{
                             TextButton(
                               onPressed: () {
                                 print("Si");
+                                _contadorcontralor6++;
                                 //Navigator.pop(context);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "6")),
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "1")),
                                 );
                               },
                               child: Text("Si"),
@@ -269,46 +276,11 @@ class contralor extends StatelessWidget{
                             TextButton(
                               onPressed: () {
                                 print("Si");
+                                _contadorcontralor7++;
                                 //Navigator.pop(context);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "7")),
-                                );
-                              },
-                              child: Text("Si"),
-                            )
-                          ],
-                        );
-                      },
-                      context: context);
-                },
-              ),
-
-              RaisedButton(
-                color: Colors.blue,
-                child: Image.asset('assets/images/KarolDanielaLopez.jpg'),
-                onPressed: () {
-                  showDialog(
-                      barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
-                      builder: (context){
-                        return AlertDialog(
-                          title: Text("Votación Contralor"),
-                          content: Text("Estas votando por Karol Daniela López, estas seguro?"),
-                          actions: <Widget>[
-                            TextButton(
-                                onPressed: () {
-                                  print("No");
-                                  Navigator.pop(context);
-                                },
-                                child: Text("No")
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                print("Si");
-                                //Navigator.pop(context);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "8")),
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "2")),
                                 );
                               },
                               child: Text("Si"),
@@ -341,10 +313,11 @@ class contralor extends StatelessWidget{
                             TextButton(
                               onPressed: () {
                                 print("Si");
+                                _contadorcontralor8++;
                                 //Navigator.pop(context);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "9")),
+                                  MaterialPageRoute(builder: (context) => cabildante(archivo: archivo, person: person, contra: "B")),
                                 );
                               },
                               child: Text("Si"),

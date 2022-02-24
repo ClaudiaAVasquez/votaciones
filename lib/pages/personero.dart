@@ -93,7 +93,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                                 print(_contadorpersonero1);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "1")),
+                                  MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "2")),
                                   );
                                 },
                               child: Text("Si"),
@@ -130,7 +130,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                                 _contadorpersonero2++;
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "2")),
+                                  MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "4")),
                                 );
                               },
                               child: Text("Si"),
@@ -166,7 +166,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                               _contadorpersonero3++;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "3")),
+                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "1")),
                               );
                             },
                             child: Text("Si"),
@@ -202,7 +202,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                               _contadorpersonero4++;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "4")),
+                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "5")),
                               );
                             },
                             child: Text("Si"),
@@ -238,7 +238,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                               _contadorpersonero5++;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "5")),
+                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "6")),
                               );
                             },
                             child: Text("Si"),
@@ -276,7 +276,7 @@ class votarpersonerosState extends State<votarpersoneros>{
                               _contadorpersonero6++;
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "6")),
+                                MaterialPageRoute(builder: (context) => contralor(archivo: archivo, person: "B")),
                               );
                             },
                             child: Text("Si"),

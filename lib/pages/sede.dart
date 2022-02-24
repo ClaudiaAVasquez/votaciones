@@ -338,3 +338,11 @@ class escogergradosState extends State<escogergrados> {
     );
   }
 }
+
+
+//conteo(_contadorpersonero1, _contadorpersonero2, _contadorpersonero3, _contadorpersonero4, _contadorpersonero5,
+//        _contadorpersonero6, _contadorcontralor1, _contadorcontralor2, _contadorcontralor3, _contadorcontralor4,
+//        _contadorcontralor5, _contadorcontralor6, _contadorcontralor7, _contadorcontralor8, _contadorcabildante1,
+//        _contadorcabildante2, _contadorcabildante3, _contadorcabildante4) {
+
+//}

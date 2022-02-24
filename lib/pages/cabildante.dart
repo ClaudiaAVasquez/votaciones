@@ -8,12 +8,20 @@ import 'archivo.dart';
 import 'personero.dart';
 import 'dart:io';
 
+var fecha = DateTime.now();
+
+int _contadorcabildante1 = 0;
+int _contadorcabildante2 = 0;
+int _contadorcabildante3 = 0;
+int _contadorcabildante4 = 0;
+
 class cabildante extends StatelessWidget{
   cabildante({Key? key, required this.archivo, required this.person, required this.contra});
   final File archivo;
   final String person;
   final String contra;
   var cabil = "0";
+  var codigo;
 
   @override
   Widget build(BuildContext context){
@@ -36,28 +44,21 @@ class cabildante extends StatelessWidget{
                       barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
                       builder: (context){
                         return AlertDialog(
-                          title: Text("Votación Cabildante"),
-                          content: Text("Estas votando por Maria Valentina Gonzalez, estas seguro?"),
+                          title: Text("CODIGO DE VOTACIÓN"),
+                          content: Text(person + contra + cabil),
                           actions: <Widget>[
                             TextButton(
-                                onPressed: () {
-                                  print("No");
-                                  Navigator.pop(context);
-                                },
-                                child: Text("No")
-                            ),
-                            TextButton(
                               onPressed: () {
-                                //print("Si");
-                                //Navigator.pop(context);
-                                cabil = "1";
+                                _contadorcabildante1++;
+                                cabil = "3";
                                 guardarvoto(archivo, person, contra, cabil);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => iniciarvotaciones(archivo: archivo)),
-                                );
-                              },
-                              child: Text("Si"),
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => iniciarvotaciones(archivo: archivo)),
+                                  );
+                                },
+                                child: Text("Aceptar"),
                             )
                           ],
                         );
@@ -74,27 +75,21 @@ class cabildante extends StatelessWidget{
                       barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
                       builder: (context){
                         return AlertDialog(
-                          title: Text("Votación Cabildante"),
-                          content: Text("Estas votando por Karol Valentina Diaz, estas seguro?"),
+                          title: Text("CODIGO DE VOTACIÓN"),
+                          content: Text(person + contra + cabil),
                           actions: <Widget>[
                             TextButton(
-                                onPressed: () {
-                                  print("No");
-                                  Navigator.pop(context);
-                                },
-                                child: Text("No")
-                            ),
-                            TextButton(
                               onPressed: () {
-                                //print("Si");
-                                //Navigator.pop(context);
-
+                                cabil = "2";
+                                _contadorcabildante2++;
+                                guardarvoto(archivo, person, contra, cabil);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => iniciarvotaciones(archivo: archivo)),
+                                  MaterialPageRoute(
+                                      builder: (context) => iniciarvotaciones(archivo: archivo)),
                                 );
                               },
-                              child: Text("Si"),
+                              child: Text("Aceptar"),
                             )
                           ],
                         );
@@ -111,26 +106,21 @@ class cabildante extends StatelessWidget{
                       barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
                       builder: (context){
                         return AlertDialog(
-                          title: Text("Votación Cabildante"),
-                          content: Text("Estas votando por Sharick Melissa Moreno, estas seguro?"),
+                          title: Text("CODIGO DE VOTACIÓN"),
+                          content: Text(person + contra + cabil),
                           actions: <Widget>[
                             TextButton(
-                                onPressed: () {
-                                  print("No");
-                                  Navigator.pop(context);
-                                },
-                                child: Text("No")
-                            ),
-                            TextButton(
                               onPressed: () {
-                                //print("Si");
-                                //Navigator.pop(context);
+                                cabil = "1";
+                                _contadorcabildante3++;
+                                guardarvoto(archivo, person, contra, cabil);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => iniciarvotaciones(archivo: archivo)),
+                                  MaterialPageRoute(
+                                      builder: (context) => iniciarvotaciones(archivo: archivo)),
                                 );
                               },
-                              child: Text("Si"),
+                              child: Text("Aceptar"),
                             )
                           ],
                         );
@@ -147,31 +137,27 @@ class cabildante extends StatelessWidget{
                       barrierDismissible: false,                  //No quita el cuadro de Dialogo al darle clic por fuera de este
                       builder: (context){
                         return AlertDialog(
-                          title: Text("Votación Cabildante"),
-                          content: Text("Estas votando en BLANCO, estas seguro?"),
+                          title: Text("CODIGO DE VOTACIÓN"),
+                          content: Text(person + contra + cabil),
                           actions: <Widget>[
                             TextButton(
-                                onPressed: () {
-                                  print("No");
-                                  Navigator.pop(context);
-                                },
-                                child: Text("No")
-                            ),
-                            TextButton(
                               onPressed: () {
-                                //print("Si");
-                                //Navigator.pop(context);
+                                cabil = "B";
+                                _contadorcabildante4++;
+                                guardarvoto(archivo, person, contra, cabil);
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => iniciarvotaciones(archivo: archivo)),
+                                  MaterialPageRoute(
+                                      builder: (context) => iniciarvotaciones(archivo: archivo)),
                                 );
                               },
-                              child: Text("Si"),
+                              child: Text("Aceptar"),
                             )
                           ],
                         );
                       },
-                      context: context);
+                      context: context
+                  );
                 },
               ),
             ]
@@ -180,3 +166,6 @@ class cabildante extends StatelessWidget{
     );
   }
 }
+
+
+

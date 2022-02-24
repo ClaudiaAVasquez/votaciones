@@ -1,3 +1,5 @@
+//https://developer.android.com/studio/debug/device-file-explorer?hl=es-419
+
 import 'dart:async';
 import 'dart:io';
 
@@ -13,7 +15,9 @@ String get _localPath{
 //Referencia a la ubicación completa del archivo
 //Variable del archivo
 File nombrearchivo(String curso, String numtablet)  {
-  final nombre = 'content://com.android.providers.media.documents/document/documents_root/' + curso + numtablet + '.csv';
+  final nombre = Directory.systemTemp.path + '/' + curso + numtablet + '.csv';
+  //final nombre = "\Galaxy Tab A7 Lite\Tablet\Documents" + '/' + curso + numtablet + '.csv';
+  //final nombre = _localPath + curso + numtablet;
   print("Nombre archivo $nombre");
   return File(nombre);
 }
@@ -27,7 +31,7 @@ int existe(File nombre){
   } else {
     try{
       nombre.create();
-      print("El archivo fue creado $nombre.path");
+      print("El archivo fue creado $nombre");
     } catch (error) {
       print (error);
       return 0;
@@ -39,7 +43,7 @@ int existe(File nombre){
 guardarvoto(File archivo, String person, String contra, String cabil){
   print("Guardarvoto");
   if (existe(archivo) == 1){
-    var registro = person + "," + contra + "," + cabil;
+    var registro = person + "," + contra + "," + cabil + "\n";
     print(registro);
     archivo.writeAsString(registro, mode: FileMode.append);
     }

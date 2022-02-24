@@ -78,10 +78,12 @@ Widget Sign_in(BuildContext context) {
 
 Widget campousuario(BuildContext context){
 
+  var textController = TextEditingController();
   return Container(
       padding: const EdgeInsets.all(20),      //Darle bordes al TextField
       child: TextField(
-          decoration: InputDecoration(
+
+          decoration: const InputDecoration(
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.pink,
@@ -93,6 +95,7 @@ Widget campousuario(BuildContext context){
             fillColor: Colors.white,
             filled: true,
           ),
+        keyboardType: TextInputType.name,
         controller: leeUsuario,
       ),
   );
@@ -110,6 +113,7 @@ Widget campocontrasena(BuildContext context){
             fillColor: Colors.white,
             filled: true,
           ),
+        keyboardType: TextInputType.name,
         controller: leePassword,
       )
   );
@@ -138,8 +142,11 @@ Widget botonentrar(BuildContext context, String usu, String pass, String curso) 
         usuario = leeUsuario.text;
         password = leePassword.text;
         numtablet = leenumtablet.text;
-        final File archivo = await nombrearchivo(curso, numtablet);
-        if ((usuario == usu) && (password == pass)){
+        File archivo = await nombrearchivo(curso, numtablet);
+        if ((usuario == usu) && (password == pass)) {
+          leeUsuario.text = '';
+          leePassword.text = '';
+          leenumtablet.text = '';
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => iniciarvotaciones(archivo: archivo)),
